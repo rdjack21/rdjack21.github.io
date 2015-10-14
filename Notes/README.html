@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="author" content="Richard Jackson">
+<title>Notes</title>
+<link rel="stylesheet" href="./css/riak.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Notes</h1>
+<div class="details">
+<span id="author" class="author">Richard Jackson</span><br>
+<span id="email" class="email">rdjack21 at gmail dot com</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_rendered_docs">Rendered docs</a></li>
+<li><a href="#_how_to_generate_html_from_these_docs">How to generate HTML from these docs</a></li>
+<li><a href="#_change_the_style_sheet_used_to_render_the_document">Change the style sheet used to render the document</a></li>
+<li><a href="#_hey_i_like_your_doc_and_what_to_use_it">Hey I like your doc and what to use it!</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons Attribution 4.0 International License">
+</div>
+</div>
+<div class="paragraph">
+<p>This repo is just here to hold various notes, cheat sheets and such that I find
+useful.</p>
+</div>
+<div class="paragraph">
+<p>All the documents are AsciiDoc formatted with some embedded Asciidoctor directives.
+I have not tested these docs with the original python AsciiDoc tools I have only tested
+with the Asciidoctor tool set which is the same tool set GitHub is using.</p>
+</div>
+<div class="paragraph">
+<p>The official Asciidoctor web site is located <a href="http://asciidoctor.org/">here</a> where you
+can find instructions on how to use Asciidoctor.</p>
+</div>
+<div class="paragraph">
+<p>While github does support AsciiDoc the css style sheet they are using looks to be designed
+to make AsciiDoc look like markdown which was supported first. While there is nothing
+wrong with that it does limit what you can do and how good you can make the output
+look on the normal project web site. The best way to view these documents is in the
+projects pages space which I link to below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rendered_docs">Rendered docs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These documents have been generated using the &#8216;riak&#8217; style sheet provided by the
+<a href="https://github.com/asciidoctor/asciidoctor-stylesheet-factory">asciidoctor-stylesheet-factory</a> project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://rdjack21.github.io/Notes/README.html">README</a> - This document just for the
+heck of it.</p>
+</li>
+<li>
+<p><a href="https://rdjack21.github.io/Notes/emacs-cheat-sheet.html">emacs-cheat-sheet</a> - This is
+just a standard Emacs cheat sheet covering the default keys.</p>
+</li>
+<li>
+<p><a href="https://rdjack21.github.io/Notes/emacs_notes.html">emacs_notes</a> - This one contains
+notes about the various packages I have installed into my instance of Emacs. This
+just lets me put notes about my setup in one place without having to bounce all over
+the place to find what I need.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_generate_html_from_these_docs">How to generate HTML from these docs</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You will need to have Asciidoctor installed and functioning. You can find
+instructions on how to that <a href="http://asciidoctor.org/"><strong>here</strong></a>.</p>
+</li>
+<li>
+<p>Clone this repo.</p>
+</li>
+<li>
+<p>From a command prompt in the directory that you cloned this repo into execute
+this command:</p>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>asciidoctor emacs-cheat-sheet.adoc</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_the_style_sheet_used_to_render_the_document">Change the style sheet used to render the document</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you don&#8217;t like the default style sheet I have set for rendering the document
+you can change it in 2 different ways.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change the <code>stylesheet</code> attribute at the top of the document to the style
+sheet you would prefer to use then generate the html file.</p>
+</li>
+<li>
+<p>You can override the style sheet used on the command line for example like
+this:</p>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>asciidoctor -a stylesheet=golo.css emacs-cheat-sheet.adoc</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To make this easier on you I have already included all the themes supported by the
+<a href="https://github.com/asciidoctor/asciidoctor-stylesheet-factory">asciidoctor-stylesheet-factory</a>
+project. The style sheets are in the &#8216;css&#8217; directory and any image resources they
+may need are in the &#8216;images&#8217; directory.</p>
+</div>
+<div class="paragraph">
+<p>If you wish to use a style sheet that I have not included you will also have to override
+or change the style sheet location option either in the doc or the command line.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hey_i_like_your_doc_and_what_to_use_it">Hey I like your doc and what to use it!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>That is pretty easy to do and you have a few options.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you like the style sheet I&#8217;m using you can just clone my pages project which already
+has them rendered. They are in the &#8216;Notes&#8217; directory. Then just copy the files you want to
+your server or just open them in your browser directly from your file system. When copying
+them to a file server make sure and copy the &#8216;css&#8217; and &#8216;images&#8217; directories as well.</p>
+</li>
+<li>
+<p>If you really don&#8217;t want to copy all the css files to your server you can remove the
+<code>linkcss</code> attribute from the top of the &#8216;adoc&#8217; file that you want a copy of then
+regenerate it. This will cause the css to be embedded into the file. But this will not
+cause any image resources to be embedded so you will still need to copy those over.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2015-10-13 23:39:43 CDT
+</div>
+</div>
+</body>
+</html>
