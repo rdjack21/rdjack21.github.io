@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="author" content="Richard Jackson">
+<title>Emacs Notes</title>
+<link rel="stylesheet" href="./css/riak.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Emacs Notes</h1>
+<div class="details">
+<span id="author" class="author">Richard Jackson</span><br>
+<span id="email" class="email">rdjack21 at gmail dot com</span><br>
+<span id="revnumber">version 0.1</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_el_get">el-get</a>
+<ul class="sectlevel2">
+<li><a href="#_adding_and_removing_packages">Adding and removing packages</a></li>
+<li><a href="#_keeping_up_to_date">Keeping up to date</a></li>
+<li><a href="#_viewing_available_recipes">Viewing available recipes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document is more aimed at quick notes for the various packages I have
+installed into my emacs. You may find this usfull or you may not. It should
+also be noted that much of this document is copied from the original package
+documentation of the package being documented. All this does is put the parts
+I think I may need on a regular basis in one place to make it easier for me
+to find.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_el_get">el-get</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the package manager I&#8217;ve choosen to use.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">GitHub</dt>
+<dd>
+<p><a href="https://github.com/dimitri/el-get" class="bare">https://github.com/dimitri/el-get</a></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>It should be noted that the below commands will do what they say and make a
+package available for this session. To make things persist across restarts
+you have to update your &#8216;init.el&#8217; start up files.</p>
+</div>
+<div class="sect2">
+<h3 id="_adding_and_removing_packages">Adding and removing packages</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 66%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-install</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will prompt for a package name, with completion, then install it. It will only
+propose packages that are not already &#8216;installed&#8217;. Any package that you have a
+recipe for is a candidate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-remove</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will prompt for an &#8216;installed&#8217; package name, with completion, then remove it.
+Depending on the &#8216;type&#8217; of the package, this often means simply deleting the
+directory where the source package lies. Sometime we have to use external tools
+instead (e.g. &#8216;apt-get&#8217;). No effort is made to unload the features.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-reinstall</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is just a shortcut for &#8216;el-get-remove&#8217; followed by &#8216;el-get-install&#8217; of
+the same package. It is primarily useful when a package has changed types, so the
+normal el-get-update process will not work correctly.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_keeping_up_to_date">Keeping up to date</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 66%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-self-update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update only one package, &#8216;el-get&#8217; itself</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will prompt for an installed package name, with completion, then update it. This
+will run the &#8216;build&#8217; commands and &#8216;int&#8217; the package again.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-update-all</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will update all packages that have the &#8216;installed&#8217; status in your status file.
+Before the update you will be prompted for confirmation that you wish to proceed.
+</p><p class="tableblock">Beware that using this function can lead to hours of settings review: more often
+than not updating a package requires some adjustments to your setup. Updating all
+of them at once will require reviewing almost all your setup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-reload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reload the given package files. Happens automatically at update time too.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_viewing_available_recipes">Viewing available recipes</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 66%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-list-packages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a buffer listing all known packages (those for which you have a recipe). The
+listing includes the package name, its status (one of <em>available</em>, <em>installed</em>,
+<em>removed</em> or <em>required</em>) and the package description. The description is a free
+form text and has not been provided for all recipes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-describe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prompt for a package name, with completion, then open an &#8216;<strong>Help</strong>&#8217; window with
+details about the selected package. Those include current status, website,
+description, installation method, full recipe, and buttons to easily install,
+update or remove the package.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Meta</kbd>+<kbd>x</kbd></span> el-get-find-recipe-file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will prompt for the name of a package, with completion, then &#8216;find-file&#8217; its
+&#8216;recipe&#8217; file. If the recipe does not exist, it will create a new recipe file
+with the appropriate name.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 0.1<br>
+Last updated 2015-10-13 22:27:59 CDT
+</div>
+</div>
+</body>
+</html>
